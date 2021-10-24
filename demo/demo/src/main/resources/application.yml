@@ -1,0 +1,29 @@
+# 이 app의 기본적인 홈주소를 설정할때 사용 (생략가능) 포트번호를 지정해줘야하기때문에 여기서 설정
+server:
+  port: 8181
+  servlet:
+    context-path: /myapp
+
+# mysql처럼 db를 사용하면 무조건 작성
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/testdb?serverTimezone=UTC&characterEncoding=UTF-8
+    username: root
+    password: 1234
+  # jsp를 사용하기 위해서 사용 viewResolver
+  # 특정 요청들을 붙잡아서 앞 뒤로 살을 붙여줌
+  # 특정 요청을 지정 가능
+  # prefix - @Controller 어노테이션이 붙은 페이지의 리턴타입이 String인 메소드에 살을 붙여준다
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+# resources에 mapper.xml 파일을 만들어서 설정을 해주는데 그 경로를 지정해준다.
+# classpath는 resources와 같다
+# **/ 의미는 resources 아래에 다른 폴더가 있을 수도 있기때문에 다 찾아 달라는 말
+# **/가 없으면 mapper바로 하위에 있는 *.xml 파일만 찾을 수 있고 폴더 안에 있는 .xml은 못찾는다
+mybatis:
+  mapper-locations:
+    - classpath:mapper/**/*.xml

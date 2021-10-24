@@ -15,13 +15,22 @@ configurations {
 }
 
 repositories {
-	mavenCentral()
+	mavenCentral()  // 깃허브같은 온라인 저장소
+	// mavenCenter에서 dependencies에 필요한것들을 다운
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	// implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+
+	// jstl사용을 위해서
+	implementation "org.apache.tomcat.embed:tomcat-embed-jasper"
+	implementation "javax.servlet:jstl"
+
+	// mybatis 사용을 위해서
 	implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.2.0'
+
+	// lombok 사용을 위해서
 	compileOnly 'org.projectlombok:lombok'
 	runtimeOnly 'mysql:mysql-connector-java'
 	annotationProcessor 'org.projectlombok:lombok'

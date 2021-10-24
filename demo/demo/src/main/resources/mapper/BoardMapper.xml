@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis/org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace= "com.trip.mapper.BoardMapper">
+
+
+<!-- UPDATE test_board
+     SET name = #{name}   DB기준 컬럼명 = vo기준 변수명
+-->
+
+
+    <insert id="insert">
+        INSERT INTO boot_board (name,pass,subject,content,joindate,readcount,re_ref)
+        VALUES(#{name}, #{pass},#{subject},#{content},now(),0,0)
+    </insert>
+
+</mapper>

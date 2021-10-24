@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.gather.trip.mapper.MemberMapper">
+    <insert id="insert">
+        INSERT INTO test_board1(num,name,password)
+        VALUES (#{num}, #{name}, #{password})
+    </insert>
+
+    <select id="read" resultType="com.gather.trip.domain.MemberVO">
+        SELECT *
+        FROM test_board1
+        WHERE num=${num}
+    </select>
+
+    <delete id="delete">
+        DELETE
+        FROM test_board1
+        WHERE num=${num}
+    </delete>
+
+    <update id="update">
+        UPDATE test_board1
+        SET num=#{num},name=#{name},password=#{password}
+        WHERE num=${num}
+    </update>
+</mapper>
